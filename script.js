@@ -1,16 +1,16 @@
 const inventors = [
-    { first: 'Meryl', last: 'Streep', age: 1949, passed: 'Summit, NJ'},
-    { first: 'Viola', last: 'Davis', age: 1965, passed: 'St. Matthewes, SC'},
-    { first: 'Scarlett', last: 'Johansson', age: 1984, passed: 'New York, NY'},
-    { first: 'Lupita', last: 'Nyongo', age: 1983, passed: 'Mexico City, Mexico'},
-    { first: 'Emma', last: 'Stone', age: 1988, passed: 'Scottsdale, AZ'},
-    { first: 'Gal', last: 'Gadot', age: 1985, passed: 'Rosh HaAyin, Israel'},
-    { first: 'Jennifer', last: 'Lawrence', age: 1990, passed: 'Indian Hills, KY'},
-    { first: 'Saoirse', last: 'Ronan', age: 1994, passed: 'New York, NY'},
-    { first: 'Brie', last: 'Larson', age: 1989, passed: 'Sacramento, CA'},
-    { first: 'Angelina', last: 'Jolie', age: 1975, passed: 'Los Angeles, CA'},
-    { first: 'Charlize', last: 'Theron', age: 1975, passed: 'Benoni, South Africa'},
-    { first: 'Margot', last: 'Robbie', age: 1990, passed: 'Dalby, Australia'}
+    {first: 'Hedy', last: 'Lamarr', year: '1914', passed: '2000'},
+    {first: 'Grace', last: 'Hopper', year: '1906', passed: '1992'},
+    {first: 'Stephanie', last: 'Kwolek', year: '1923', passed: '2014'},
+    {first: 'Mary', last: 'Anderson', year: '1866', passed: '1953'},
+    {first: 'Thomas', last: 'Edison', year: '1847', passed: '1931'},
+    {first: 'Alexander', last: 'Graham Bell', year: '1847', passed: '1922'},
+    {first: 'Nikola', last: 'Tesla', year: '1856', passed: '1943'},
+    {first: 'Albert', last: 'Einstein', year: '1879', passed: '1955'},
+    {first: 'Barbara', last: 'Askins', year: '1939', passed: '2015'},
+    {first: 'Marion', last: 'Donovan', year: '1917', passed: '1998'},
+    {first: 'Elihu', last: 'Thomson', year: '1853', passed: '1937'},
+    {first: 'Benjamin', last: 'Franklin', year: '1706', passed: '1790'},
 ]
 
 
@@ -21,4 +21,49 @@ const people = [
     'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ];
+
+// const fifteen = inventors.filter(function(inventor) {
+//     if(inventor.year >= 1500 && inventor.year <=1600)
+//         return true
+// });
+const fifteen = inventors.filter(inventor => inventor.year >= 1500 && inventor.year <= 1600);
+console.table(fifteen);
+
+// const fullNames = inventors.map(inventor => inventor.first + " " + inventor.last);
+const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+console.log(fullNames);
+
+const ordered = inventors.sort((a, b) => a.year >= b.year ? 1 : -1);
+console.table(ordered)
+
+const totalYears = inventors.reduce((total, inventor) => {
+    return total + (inventor.passed - inventor.year)
+}, 0);
+console.log(totalYears)
+
+const oldest = inventors.sort(function(a, b) {
+   const lastGuy = a.passed - a.year;
+   const nextGuy = b.passed - b.year;
+   return lastGuy > nextGuy ? -1 : 1;
+   // if(lastGuy > nextGuy){
+   //     return -1;
+   // } else {
+   //     return 1;
+   // }
+});
+console.table(oldest);
+
+
+const category = document.querySelector('.mw-category');
+const links = category.querySelectorAll('a');
+
+
+
+
+
+
+
+
+
+
 
