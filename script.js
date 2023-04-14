@@ -53,12 +53,34 @@ const oldest = inventors.sort(function(a, b) {
 });
 console.table(oldest);
 
+//https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// const category = document.querySelector('.mw-category');
+// const links = Array.from(category.querySelectorAll('a'));
+// const de = links
+//     .map(link => link.textContent)
+//     .filter(streetName => streetName.includes('de'));
 
-const category = document.querySelector('.mw-category');
-const links = category.querySelectorAll('a');
+const alpha = people.sort((lastOne, nextOne) => {
+    const [aLast, aFirst] = lastOne.split(', ');
+    const [bLast, bFirst] = nextOne.split(', ');
+    return aLast > bLast ? 1 : -1;
+});
 
+console.log(alpha);
 
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van',
+'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
+const transportation = data.reduce(function (obj, item) {
+    if(!obj[item]) {
+        obj[item] = 0;
+    }
+    obj[item]++;
+    console.log(item);
+    return obj;
+}, {});
+
+console.log(transportation);
 
 
 
